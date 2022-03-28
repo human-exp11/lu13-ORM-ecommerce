@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
   })
   .then(categoryData => {
     if (!categoryData) {
-      res.status(404).json({ message: 'Unable to find category with the ID entered.' });
+      res.status(404).json({ message: 'Unable to find category associated with that ID.' });
       return;
   }
     res.json(categoryData)
@@ -72,7 +72,7 @@ router.put('/:id', (req, res) => {
   )
   .then(categoryData => {
     if (!categoryData) {
-        res.status(404).json({ message: 'Unable to find category with the ID entered'});
+        res.status(404).json({ message: 'Unable to find category associated with that ID.'});
         return;
     }
     res.json(categoryData);
@@ -92,7 +92,7 @@ router.delete('/:id', (req, res) => {
   })
   .then(categoryData => {
     if (!categoryData) {
-        res.status(404).json({ message:'Unable to find category with the ID entered'});
+        res.status(404).json({ message:'Unable to find category associated with that ID.'});
         return;
     }
     res.json(categoryData);
