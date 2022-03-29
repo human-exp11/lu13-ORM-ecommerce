@@ -11,7 +11,6 @@ router.get('/', (req, res) => {
       {
         model: Product,
         through: ProductTag,
-        as: 'productTag_product'
       }
     ]
   })
@@ -25,7 +24,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
-  ag.findOne({
+  Tag.findOne({
     where: {
       id: req.params.id
     },
@@ -33,7 +32,6 @@ router.get('/:id', (req, res) => {
       {
         model: Product,
         through: ProductTag,
-        as: 'productTag_product'
       }
     ]
   })
