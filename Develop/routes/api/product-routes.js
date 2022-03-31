@@ -41,8 +41,7 @@ router.get('/:id', (req, res) => {
       {
         model: Tag,
         attributes: ['tag_name'],
-        through: ProductTag,
-
+        through: ProductTag
       }
     ]
   })
@@ -88,13 +87,16 @@ router.post('/', (req, res) => {
       res.status(400).json(err);
 });
 
-
-// update product
+//update product
 router.put('/:id', (req, res) => {
   // update product data
-  Product.update(req.body, {
+  Product.update(
+    {
+      product_name: req.body.product_name
+    },
+    {
     where: {
-      id: req.params.id,
+      id: req.params.id
     },
   })
     .then((product) => {
@@ -151,4 +153,9 @@ router.delete('/:id', (req, res) => {
   });
 });
 });
+
+router.put("/test", (req, res)=> {
+  res.status(202)
+})
+
 module.exports = router;
